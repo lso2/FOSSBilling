@@ -5,14 +5,14 @@
 {% set public_logo_url = company.logo_url %}
 {% set public_dark_logo_url = company.logo_url_dark %}
 {% set page_title = (settings.meta_title_prefix ~ ' ' ~ block('meta_title') ~ ' ' ~ settings.meta_title_suffix)|trim %}
-{% set meta_description = block('meta_description')|default(settings.meta_description) %}
+{% set meta_description = block('meta_description') %}
 <html lang="{{ active_locale }}" data-bs-theme="{{ settings.theme|default('light') }}">
 <head>
     <meta charset="utf-8">
     <title>{{ page_title }}</title>
     <meta name="color-scheme" content="light dark">
 
-    <meta name="description" content="{% block meta_description %}{{ meta_description }}{% endblock %}">
+    <meta name="description" content="{% block meta_description %}{{ settings.meta_description }}{% endblock %}">
     <meta name="keywords" content="{{ settings.meta_keywords }}">
     <meta name="robots" content="{{ settings.meta_robots }}">
     <meta name="author" content="{{ settings.meta_author }}">
